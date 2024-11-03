@@ -1,7 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 const db = require('./db');
 const app = express();
 require('dotenv').config();
+app.use(cors({
+    origin: 'http://localhost:3000', // Allow only this origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    credentials: true // If you need to include cookies or authentication headers
+  }));
 
 
 const bodyParser = require('body-parser');
